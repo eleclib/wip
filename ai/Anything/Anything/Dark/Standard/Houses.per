@@ -18,11 +18,13 @@
     ;(set-strategic-number sn-placement-fail-delta 4)
     (up-build place-point 0 c: house)   ; fix place-point in VSCode Extension later...
     (up-remove-objects search-local object-data-index == 0)
+    (up-clean-search search-local object-data-index search-order-asc)
     (up-set-target-object search-local c: 0)
     (up-get-point position-object gl-pos)
     (up-set-target-point gl-pos)
     (up-build place-point 0 c: house)   ; fix place-point in VSCode Extension later...
     (up-remove-objects search-local object-data-index == 0)
+    (up-clean-search search-local object-data-index search-order-asc)
     (up-set-target-object search-local c: 0)
     (up-get-point position-object gl-pos)
     (up-set-target-point gl-pos)

@@ -1,0 +1,9 @@
+
+
+
+(defrule
+    (current-age == feudal-age)
+    =>
+    (up-modify-goal gl-target-villager-total c:+ 2)
+    (disable-self)
+)

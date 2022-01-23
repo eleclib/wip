@@ -1,0 +1,33 @@
+
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+)
+
+(defrule
+    (up-compare-goal gl-sent-scout != 1)
+    (up-find-remote c: livestock-class c: 1)
+    =>
+    (up-find-local c: scout-cavalry c: 1)
+    ; eagle scout later
+    (up-target-objects 0 action-move -1 -1)
+    (set-goal gl-sent-scout 1)
+)
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+)
+
+(defrule
+    (not(up-find-remote c: livestock-class c: 1))
+    (goal gl-sent-scout 1)
+    =>
+    (up-reset-scouts)
+    (set-goal gl-sent-scout 0)
+)

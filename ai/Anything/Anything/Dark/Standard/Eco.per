@@ -7,3 +7,23 @@
     (disable-self)
 )
 
+
+(defrule
+    (unit-type-count villager >= 10)
+    =>
+    (set-strategic-number sn-food-gatherer-percentage 60)
+    (set-strategic-number sn-wood-gatherer-percentage 40)
+    (disable-self)
+)
+
+
+(defrule
+    (unit-type-count villager >= 17)
+    =>
+    (set-strategic-number sn-food-gatherer-percentage 40)
+    (set-strategic-number sn-wood-gatherer-percentage 38)
+    (set-strategic-number sn-gold-gatherer-percentage 8)
+    (set-strategic-number sn-stone-gatherer-percentage 14) ; split later into separate strats
+    (disable-self)
+)
+

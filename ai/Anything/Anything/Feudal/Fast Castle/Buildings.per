@@ -1,0 +1,27 @@
+
+
+(defrule
+    (current-age == feudal-age)
+    (building-type-count-total market < 1)
+    (can-build market)
+    =>
+    (build market)
+)
+
+
+(defrule
+    (current-age == feudal-age)
+    (building-type-count-total blacksmith < 1)
+    (can-build blacksmith)
+    =>
+    (build blacksmith)
+)
+
+
+; [DE 56005] up-assign-builders - broken with walls
+(defrule
+    (up-pending-objects c: market > 0)
+    =>
+    (up-assign-builders c: market c: 2)
+)
+

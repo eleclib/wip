@@ -2,12 +2,12 @@
 
 (defconst predator-animal-class 910) ; add to VSCode Extension along with other DE stuff
 (defconst prey-animal-class 909)
-
+(defconst forage-class 907)
 
 
 (defconst cn-first-boar-hunt-villager-threshold 11)
-(defconst cn-second-boar-hunt-villager-threshold 16)
-(defconst cn-third-boar-hunt-villager-threshold 21)
+(defconst cn-second-boar-hunt-villager-threshold 17)
+(defconst cn-third-boar-hunt-villager-threshold 25)
 
 
 
@@ -18,10 +18,38 @@
 
 (defconst object-data-index -1)
 
+
+(defconst search-order-none 0)
+(defconst search-order-asc 1)
+(defconst search-order-desc 2)
+
+
+(defconst status-pending 0)
+(defconst status-ready 2)
+(defconst status-resource 3)
+(defconst status-down 4)
+(defconst status-gather 5)
+
+
+
+(defconst list-active 0)
+(defconst list-inactive 1)
+
+
+
+
+
+
+
+(defconst object-data-distance 44)
+
+
 (defconst gl-permit-villager-training 1)
 (defconst gl-target-villager-total 2)
 (defconst gl-permit-boar-hunting 3)
 (defconst gl-up-get-object-data 4)
+(defconst gl-sent-scout 5)
+(defconst gl-math-1 6)
 
 (defconst gl-pos 41)
 (defconst gl-pos-x 41)

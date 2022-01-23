@@ -1,0 +1,76 @@
+
+
+(defrule
+    (true)
+    =>
+    (up-get-fact unit-type-count livestock-class gl-math-1)
+)
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: livestock-class c: 8)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: predator-animal-class c: 8)
+    (up-remove-objects search-remote object-data-resource != food)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: forage-class c: 8)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: 7 c: 17)
+    (up-find-remote c: forage-class c: 8)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+(defrule
+    (building-type-count-total lumber-camp < 1)
+    (building-type-count-total mill > 0) ; careful
+    (up-compare-goal gl-math-1 <= 6)
+    (can-build lumber-camp)
+    =>
+    (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: 9 c: 50)
+    (up-filter-status c: status-resource c: list-active)
+    (up-find-resource c: wood c: 40)
+    (up-clean-search search-remote object-data-distance search-order-asc)
+    (up-set-target-object search-remote c: 0)
+    (up-get-point position-point gl-pos)
+    (up-set-target-point gl-pos)
+    (up-find-local c: town-center c: 1)
+    (up-get-object-data object-data-distance gl-up-get-object-data)
+    (up-modify-sn sn-lumber-camp-max-distance g:= gl-up-get-object-data)
+    (up-modify-sn sn-lumber-camp-max-distance c:+ 8)
+    (up-build place-point 0 c: lumber-camp)
+)
+

@@ -1,0 +1,26 @@
+
+
+; on town center
+
+(defrule
+    (current-age == castle-age)
+    (building-type-count-total castle < 1)
+    (can-build castle)
+    =>
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (set-strategic-number sn-placement-zone-size 8)
+    (up-build place-point 0 c: castle)
+)
+
+
+
+(defrule
+    (current-age == castle-age)
+    (up-pending-objects c: castle > 0)
+    =>
+    (up-assign-builders c: castle c: 17)
+    (set-strategic-number sn-placement-zone-size 20)
+)
+
+

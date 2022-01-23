@@ -1,27 +1,63 @@
 
 
+
+; go for deer too..
+
 (defrule
-    (current-age == dark-age)
-    (building-type-count-total mill < 1)
-    (unit-type-count livestock-class <= 2)
-    (can-build mill)
+    (true)
     =>
     (up-full-reset-search)
-    (up-get-point position-self gl-pos)
-    (up-set-target-point gl-pos)
-    (up-filter-distance c: -1 c: 4)
     (set-strategic-number sn-focus-player-number 0)
     (up-find-remote c: livestock-class c: 8)
-    ;(up-find-remote c: predator-animal-class c: 2) ; dead objects arent alive...
     (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:= gl-search-state-3)
 )
 
 (defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: predator-animal-class c: 8)
+    (up-remove-objects search-remote object-data-resource != food)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+;(defrule
+;    (true)
+;    =>
+;    (up-full-reset-search)
+;    (set-strategic-number sn-focus-player-number 0)
+;    (up-find-remote c: forage-class c: 8)
+;    (up-get-search-state gl-search-state)
+;    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+;)
+
+;(defrule
+;    (current-age == dark-age)
+;    (building-type-count-total mill < 1)
+;    (up-compare-goal gl-search-state-3 <= 2)
+;    (unit-type-count livestock-class <= 2)
+;    (can-build mill)
+;    =>
+;    (up-full-reset-search)
+;    (up-get-point position-self gl-pos)
+;    (up-set-target-point gl-pos)
+;    (up-filter-distance c: -1 c: 4)
+;    (set-strategic-number sn-focus-player-number 0)
+;    (up-find-remote c: livestock-class c: 8)
+    ;(up-find-remote c: predator-animal-class c: 2) ; dead objects arent alive...
+;    (up-get-search-state gl-search-state)
+;)
+
+(defrule
+    (game-time > 30)
     (current-age == dark-age)
     (building-type-count-total mill < 1)
-    (unit-type-count livestock-class <= 3)
+    (up-compare-goal gl-math-1 <= 1)
+    (unit-type-count livestock-class <= 1)
     (can-build mill)
-    (up-compare-goal gl-search-state-3 <= 1)
     =>
     (build mill)
 )
