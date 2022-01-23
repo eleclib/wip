@@ -54,13 +54,13 @@
 (defrule
     (building-type-count-total lumber-camp < 1)
     (building-type-count-total mill > 0) ; careful
-    (up-compare-goal gl-math-1 <= 6)
+    (up-compare-goal gl-math-1 <= 9)
     (can-build lumber-camp)
     =>
     (up-full-reset-search)
     (up-get-point position-self gl-pos)
     (up-set-target-point gl-pos)
-    (up-filter-distance c: 9 c: 50)
+    (up-filter-distance c: 10 c: 50)
     (up-filter-status c: status-resource c: list-active)
     (up-find-resource c: wood c: 40)
     (up-clean-search search-remote object-data-distance search-order-asc)
@@ -71,6 +71,15 @@
     (up-get-object-data object-data-distance gl-up-get-object-data)
     (up-modify-sn sn-lumber-camp-max-distance g:= gl-up-get-object-data)
     (up-modify-sn sn-lumber-camp-max-distance c:+ 8)
+    (set-strategic-number sn-placement-zone-size 40)
     (up-build place-point 0 c: lumber-camp)
+)
+
+
+(defrule
+    (current-age == dark-age)
+    (up-pending-objects c: lumber-camp > 0)
+    =>
+    (set-strategic-number sn-placement-zone-size 20)
 )
 

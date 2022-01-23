@@ -1,0 +1,36 @@
+
+
+
+
+(defrule
+    (current-age == castle-age)
+    (dropsite-min-distance wood >= 5)
+    (can-build lumber-camp)
+    =>
+    (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: 10 c: 50)
+    (up-filter-status c: status-resource c: list-active)
+    (up-find-resource c: wood c: 40)
+    (up-clean-search search-remote object-data-distance search-order-asc)
+    (up-set-target-object search-remote c: 0)
+    (up-get-point position-point gl-pos)
+    (up-set-target-point gl-pos)
+    (up-find-local c: town-center c: 1)
+    (up-get-object-data object-data-distance gl-up-get-object-data)
+    (up-modify-sn sn-lumber-camp-max-distance g:= gl-up-get-object-data)
+    (up-modify-sn sn-lumber-camp-max-distance c:+ 8)
+    (up-modify-sn sn-placement-zone-size g:= gl-up-get-object-data)
+    (up-modify-sn sn-placement-zone-size c:+ 8)
+    (up-build place-point 0 c: lumber-camp)
+)
+
+
+(defrule
+    (current-age == castle-age)
+    (up-pending-objects c: lumber-camp > 0)
+    =>
+    (set-strategic-number sn-placement-zone-size 20)
+)
+

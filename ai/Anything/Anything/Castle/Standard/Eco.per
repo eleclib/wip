@@ -1,0 +1,24 @@
+
+
+
+
+(defrule
+    (current-age == castle-age)
+    =>
+    (set-strategic-number sn-food-gatherer-percentage 35)
+    (set-strategic-number sn-wood-gatherer-percentage 35)
+    (set-strategic-number sn-gold-gatherer-percentage 14)
+    (set-strategic-number sn-stone-gatherer-percentage 16)
+    (disable-self)
+)
+
+
+
+
+(defrule
+    (current-age == castle-age)
+    =>
+    (set-strategic-number sn-maximum-town-size 28)
+    (disable-self)
+)
+
