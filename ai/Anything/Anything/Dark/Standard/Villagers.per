@@ -1,0 +1,36 @@
+
+
+(defrule
+    (true)
+    =>
+    (set-strategic-number sn-maximum-food-drop-distance 4)
+    (set-strategic-number sn-maximum-wood-drop-distance 4)
+    (set-strategic-number sn-maximum-gold-drop-distance 4)
+    (set-strategic-number sn-maximum-stone-drop-distance 4)
+    (set-strategic-number sn-maximum-hunt-drop-distance 4)
+    (disable-self)
+)
+
+(defrule
+    (true)
+    =>
+    (set-goal gl-permit-villager-training 1)
+    (set-goal gl-target-villager-total 27)
+    (disable-self)
+)
+
+
+
+
+
+(defrule
+    (goal gl-permit-villager-training 1)
+    (unit-type-count-total villager g:< gl-target-villager-total)
+    (can-train villager)
+    =>
+    (train villager)
+)
+
+
+
+

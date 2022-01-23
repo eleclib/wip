@@ -1,0 +1,27 @@
+
+
+(defrule
+    (current-age == dark-age)
+    (building-type-count-total mill < 1)
+    (unit-type-count livestock-class <= 2)
+    (can-build mill)
+    =>
+    (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 4)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: livestock-class c: 8)
+    ;(up-find-remote c: predator-animal-class c: 2) ; dead objects arent alive...
+    (up-get-search-state gl-search-state)
+)
+
+(defrule
+    (current-age == dark-age)
+    (building-type-count-total mill < 1)
+    (unit-type-count livestock-class <= 3)
+    (can-build mill)
+    (up-compare-goal gl-search-state-3 <= 1)
+    =>
+    (build mill)
+)

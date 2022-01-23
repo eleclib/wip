@@ -1,0 +1,45 @@
+
+
+(defrule
+    (unit-type-count villager >= cn-first-boar-hunt-villager-threshold)
+    =>
+    (set-goal gl-permit-boar-hunting 1)
+    (disable-self)
+)
+
+
+(defrule
+    (unit-type-count villager >= cn-second-boar-hunt-villager-threshold)
+    =>
+    (set-goal gl-permit-boar-hunting 1)
+    (disable-self)
+)
+
+
+(defrule ; Amazon Tunnel
+    (unit-type-count villager >= cn-third-boar-hunt-villager-threshold)
+    =>
+    (set-goal gl-permit-boar-hunting 1)
+    (disable-self)
+)
+
+
+
+
+(defrule
+    (goal gl-permit-boar-hunting 1)
+    =>
+    (up-full-reset-search)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: predator-animal-class c: 3)
+    (up-remove-objects search-remote object-data-resource != food)
+    (up-remove-objects search-remote object-data-index > 0)
+    (up-find-local c: villager-class c: 3)
+    (up-set-target-object search-local c: 0)
+    (up-get-object-data object-data-maxhp gl-up-get-object-data)
+    (up-remove-objects search-local object-data-hitpoints g:< gl-up-get-object-data)
+    (up-remove-objects search-local object-data-index > 0)
+    (up-target-objects 0 action-default -1 -1)
+    (set-goal gl-permit-boar-hunting 0)
+)
+
