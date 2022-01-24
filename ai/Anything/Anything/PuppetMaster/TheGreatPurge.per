@@ -1,0 +1,69 @@
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (current-age-time > 1800)
+    (wood-amount > 20000)
+    (food-amount > 20000)
+    (gold-amount > 10000)
+    (unit-type-count villager >= 130)
+    =>
+    (set-goal gl-target-villager-total 70)
+    (set-goal gl-the-great-purge 1)
+    (disable-self)
+)
+
+
+(defrule
+    (goal gl-the-great-purge 1)
+    (unit-type-count villager > 70)
+    =>
+    (delete-unit villager)
+)
+
+(defrule
+    (goal gl-the-great-purge 1)
+    (unit-type-count villager <= 70)
+    =>
+    (set-goal gl-the-great-purge 0)
+)
+
+
+
+
+
+
+
+
+(defrule
+    (goal gl-the-great-purge 0)
+    (current-age == imperial-age)
+    (current-age-time > 3600)
+    (wood-amount > 10000)
+    (food-amount > 10000)
+    (gold-amount > 5000)
+    (unit-type-count villager >= 70)
+    (unit-type-count trade-cart >= 70)
+    =>
+    (set-goal gl-target-villager-total 40)
+    (set-goal gl-the-great-purge 3)
+    (disable-self)
+)
+
+
+
+
+(defrule
+    (goal gl-the-great-purge 3)
+    (unit-type-count villager > 40)
+    =>
+    (delete-unit villager)
+)
+
+(defrule
+    (goal gl-the-great-purge 3)
+    (unit-type-count villager <= 40)
+    =>
+    (set-goal gl-the-great-purge 2)
+)

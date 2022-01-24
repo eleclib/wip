@@ -1,0 +1,36 @@
+
+
+
+
+(defrule
+    (can-research ri-guilds)
+    =>
+    (research ri-guilds)
+)
+
+
+(defrule
+    (can-research ri-banking)
+    =>
+    (research ri-banking)
+)
+
+
+(defrule
+    (current-age < imperial-age)
+    =>
+    (up-jump-rule 2)
+)
+
+(defrule
+    (can-research ri-coinage)
+    =>
+    (research ri-coinage)
+)
+
+
+(defrule
+    (can-research ri-caravan)
+    =>
+    (research ri-caravan)
+)
