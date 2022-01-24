@@ -1,6 +1,14 @@
 
 
 
+
+(defrule
+    (not(research-completed my-unique-research))
+    =>
+    (up-jump-rule 4)
+)
+
+
 (defrule
     (current-age == imperial-age)
     (can-train monk)
