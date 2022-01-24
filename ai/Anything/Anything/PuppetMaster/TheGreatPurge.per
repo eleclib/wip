@@ -41,38 +41,38 @@
 
 
 
-(defrule
-    (goal gl-the-great-purge 0)
-    (current-age == imperial-age)
-    (current-age-time > 2400)
-    ;(wood-amount > 3250)
-    ;(food-amount > 3250)
-    ;(gold-amount > 3250)
-    (unit-type-count villager >= 70)
-    (unit-type-count trade-cart >= 70)
-    =>
-    (set-strategic-number sn-food-gatherer-percentage 59)
-    (set-strategic-number sn-wood-gatherer-percentage 39)
-    (set-strategic-number sn-gold-gatherer-percentage 1)
-    (set-strategic-number sn-stone-gatherer-percentage 1)
-    (set-goal gl-target-villager-total 40)
-    (set-goal gl-the-great-purge 3)
-    (disable-self)
-)
+;(defrule
+;    (goal gl-the-great-purge 0)
+;    (current-age == imperial-age)
+;    (current-age-time > 2400)
+;    ;(wood-amount > 3250)
+;    ;(food-amount > 3250)
+;    ;(gold-amount > 3250)
+;    (unit-type-count villager >= 70)
+;    (unit-type-count trade-cart >= 70)
+;    =>
+;    (set-strategic-number sn-food-gatherer-percentage 59)
+;    (set-strategic-number sn-wood-gatherer-percentage 39)
+;    (set-strategic-number sn-gold-gatherer-percentage 1)
+;    (set-strategic-number sn-stone-gatherer-percentage 1)
+;    (set-goal gl-target-villager-total 40)
+;    (set-goal gl-the-great-purge 3)
+;    (disable-self)
+;)
 
 
 
 
-(defrule
-    (goal gl-the-great-purge 3)
-    (unit-type-count villager > 40)
-    =>
-    (delete-unit villager)
-)
+;(defrule
+;    (goal gl-the-great-purge 3)
+;    (unit-type-count villager > 40)
+;    =>
+;    (delete-unit villager)
+;)
 
-(defrule
-    (goal gl-the-great-purge 3)
-    (unit-type-count villager <= 40)
-    =>
-    (set-goal gl-the-great-purge 2)
-)
+;(defrule
+;    (goal gl-the-great-purge 3)
+;    (unit-type-count villager <= 40)
+;    =>
+;    (set-goal gl-the-great-purge 2)
+;)
