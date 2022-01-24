@@ -2,7 +2,7 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total barracks < 4)
+    (building-type-count-total barracks < 12)
     (can-build barracks)
     =>
     (build barracks)
@@ -13,7 +13,7 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total archery-range < 4)
+    (building-type-count-total archery-range < 12)
     (can-build archery-range)
     =>
     (build archery-range)
@@ -24,7 +24,7 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total stable < 4)
+    (building-type-count-total stable < 12)
     (can-build stable)
     =>
     (build stable)
@@ -35,7 +35,7 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total monastery < 7)
+    (building-type-count-total monastery < 24)
     (can-build monastery)
     =>
     (build monastery)
@@ -45,10 +45,12 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total siege-workshop < 4)
+    (building-type-count-total siege-workshop < 12)
     (can-build siege-workshop)
     =>
     (build siege-workshop)
 )
+
+
 
 
