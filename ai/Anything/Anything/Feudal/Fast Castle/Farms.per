@@ -1,0 +1,24 @@
+
+
+
+(defrule ; bare minimum
+    (current-age == feudal-age)
+    (building-type-count-total lumber-camp > 0)
+    (building-type-count-total farm < 5)
+    (can-build farm)
+    =>
+    (up-full-reset-search)
+    (up-find-local c: mill c: 1)
+    (up-set-target-object search-local c: 0)
+    (up-get-point position-object gl-pos)
+    (up-set-target-point gl-pos)
+    (set-strategic-number sn-placement-zone-size 4)
+    (up-build place-point 0 c: farm)
+)
+
+(defrule
+    (building-type-count farm < 5)
+    (up-pending-objects c: farm >= 5)
+    =>
+    (set-strategic-number sn-placement-zone-size 20)
+)
