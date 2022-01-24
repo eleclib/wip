@@ -1,0 +1,25 @@
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (up-allied-resource-amount any-ally amount-wood < 500)
+    =>
+    (tribute-to-player this-any-ally wood 100)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (up-allied-resource-amount any-ally amount-food < 500)
+    =>
+    (tribute-to-player this-any-ally food 100)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (up-allied-resource-amount any-ally amount-gold < 500)
+    =>
+    (tribute-to-player this-any-ally gold 100)
+)
+
+
