@@ -28,6 +28,24 @@
 
 
 
+; average ally positions
+; or center of map and lerp to enemy
+
+;(defrule
+;    (current-age == imperial-age)
+;    (military-population > 55)
+;    =>
+;    (up-get-point position-center gl-pos)
+;)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,7 +56,8 @@
     (up-compare-goal gl-current-player-iteration < 9)
     (up-compare-const my-player-number g:!= gl-current-player-iteration)
     =>
-    (up-get-point position-self gl-pos)
+    (up-get-point position-center gl-pos)
+    ;(up-get-point position-self gl-pos)
     (up-set-target-point gl-pos)
     (up-filter-distance c: -1 g: gl-simulated-town-size-attack)
     (up-find-remote c: -1 c: 40)
