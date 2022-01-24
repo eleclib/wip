@@ -23,6 +23,7 @@
 
 ; Bohemians Fast Castle Castle Drop
 (load "Anything/Constants")
+(load "Anything/Ages")
 
 
 #load-if-defined BOHEMIANS-CIV
@@ -37,7 +38,6 @@
 #end-if
 
 
-
 (load "Anything/Dark/Standard/Setup")
 (load "Anything/Dark/Standard/Eco")
 (load "Anything/Dark/Standard/Scout")
@@ -45,7 +45,6 @@
 (load "Anything/Dark/Standard/Houses")
 (load "Anything/Dark/Standard/Boar")
 (load "Anything/Dark/Standard/Deer")
-(load "Anything/Dark/Standard/Ages")
 (load "Anything/Dark/Standard/Research")
 (load "Anything/Dark/Standard/Mill")
 (load "Anything/Dark/Standard/Lumber")
@@ -65,6 +64,7 @@
 
 ; Castle Standard
 (load "Anything/Castle/Standard/Eco")
+(load "Anything/Castle/Standard/Town")
 (load "Anything/Castle/Standard/Research")
 (load "Anything/Castle/Standard/Villagers")
 (load "Anything/Castle/Standard/Farms")
@@ -74,21 +74,22 @@
 
 ; Imperial Standard
 (load "Anything/Imperial/Standard/Eco")
+(load "Anything/Imperial/Standard/Town")
 (load "Anything/Imperial/Standard/Villagers")
 (load "Anything/Imperial/Standard/Lumber")
 (load "Anything/Imperial/Standard/Mining")
 (load "Anything/Imperial/Standard/Farms")
 (load "Anything/Imperial/Standard/Houses")
-
+(load "Anything/Imperial/Standard/Town")
 
 ; Cleanup
-(load "Anything/Imperial/Standard/Cleanup")
+;(load "Anything/Imperial/Standard/Cleanup") ; disable for now
 
 
 
 ; Bohemians
 (load "Anything/Imperial/Bohemians/Research")
-
-
+(load "Anything/Imperial/Bohemians/Buildings")
+(load "Anything/Imperial/Bohemians/Training")
 
 

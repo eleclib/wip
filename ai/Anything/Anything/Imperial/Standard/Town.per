@@ -1,0 +1,20 @@
+
+
+
+
+(defrule
+    (current-age == imperial-age)
+    =>
+    (set-strategic-number sn-maximum-town-size 24)
+    (disable-self)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (can-afford-building siege-workshop)
+    (not(can-build siege-workshop))
+    =>
+    (up-modify-sn sn-maximum-town-size c:+ 1)
+)
