@@ -2,16 +2,33 @@
 
 
 
+;(defrule
+;    (not(research-completed my-unique-research))
+;    (not(research-completed ri-heavy-scorpion))
+;    (not(research-completed ri-halberdier))
+;    (not(research-completed ri-houfnice))
+;    (not(research-completed ri-chemistry))
+;    =>
+;    (up-jump-rule 4)
+;)
+
+
 (defrule
-    (not(research-completed my-unique-research))
-    (not(research-completed ri-heavy-scorpion))
-    (not(research-completed ri-halberdier))
-    (not(research-completed ri-houfnice))
-    (not(research-completed ri-chemistry))
+    (current-age == imperial-age)
+    (research-completed my-unique-research)
+    (research-completed ri-heavy-scorpion)
+    (research-completed ri-halberdier)
+    (research-completed ri-houfnice)
+    (research-completed ri-chemistry)
+    =>
+    (up-jump-rule 1)
+)
+
+(defrule
+    (current-age == imperial-age)
     =>
     (up-jump-rule 4)
 )
-
 
 (defrule
     (current-age == imperial-age)

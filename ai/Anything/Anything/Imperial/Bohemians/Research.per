@@ -13,6 +13,35 @@
 
 
 
+(defrule
+    (current-age < imperial-age)
+    =>
+    (up-jump-rule 2)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (can-research ri-chemistry)
+    =>
+    (research ri-chemistry)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (can-research ri-houfnice)
+    =>
+    (research ri-houfnice)
+)
+
+
+
+
+
+
 
 
 (defrule

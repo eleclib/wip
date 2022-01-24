@@ -80,6 +80,7 @@
     (military-population > 55)
     (up-compare-goal gl-search-state-3 > 0)
     =>
+    (up-clean-search search-remote object-data-distance search-order-asc)
     (up-target-objects 0 action-default -1 -1)
 )
 
@@ -94,7 +95,7 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-search-state-3 > 17)
+    (up-compare-goal gl-search-state-3 > 7)
     =>
     (up-modify-goal gl-simulated-town-size-attack c:- 4)
 )
