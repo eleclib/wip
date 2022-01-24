@@ -34,6 +34,7 @@
 
 (defrule
     (current-age == imperial-age)
+    (food-amount > 500)
     (can-train monk)
     =>
     (train monk)
@@ -43,6 +44,8 @@
 
 (defrule
     (current-age == imperial-age)
+    (wood-amount > 500)
+    (gold-amount > 500)
     (can-train scorpion-line)
     =>
     (train scorpion-line)
@@ -56,6 +59,8 @@
         (players-unit-type-count any-enemy battering-ram-line > 5)
         (players-unit-type-count any-enemy castle > 0)
     )
+    (wood-amount > 500)
+    (gold-amount > 500)
     (can-train houfnice)
     =>
     (train houfnice)
@@ -66,6 +71,8 @@
 (defrule
     (current-age == imperial-age)
     (players-unit-type-count any-enemy cavalry-class > 5)
+    (wood-amount > 500)
+    (food-amount > 500)
     (can-train spearman-line)
     =>
     (train spearman-line)
