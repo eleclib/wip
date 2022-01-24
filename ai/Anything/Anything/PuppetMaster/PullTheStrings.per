@@ -2,7 +2,7 @@
 (defrule
     (true)
     =>
-    (set-goal gl-simulated-town-size-attack 1)
+    (set-goal gl-simulated-town-size-attack 4)
     (set-goal gl-current-player-iteration 1)
     (disable-self)
 )
@@ -12,7 +12,7 @@
 (defrule
     (up-timer-status tm-tsa-duc > timer-triggered)
     =>
-    (up-jump-rule 10)
+    (up-jump-rule 9)
 )
 
 (defrule
@@ -137,11 +137,17 @@
     (up-modify-goal gl-simulated-town-size-attack c:- 4)
 )
 
+;(defrule
+;    (current-age == imperial-age)
+;    (military-population > 55)
+;    =>
+;    (up-send-flare gl-pos)
+;    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+;)
+
 (defrule
     (current-age == imperial-age)
-    (military-population > 55)
+    (military-population <= 35)
     =>
-    (up-send-flare gl-pos)
-    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+    (set-goal gl-simulated-town-size-attack 4)
 )
-

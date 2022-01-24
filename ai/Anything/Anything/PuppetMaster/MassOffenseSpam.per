@@ -4,6 +4,7 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
+    (up-pending-objects c: bombard-tower < 2)
     (can-build bombard-tower)
     =>
     (build-forward bombard-tower)
