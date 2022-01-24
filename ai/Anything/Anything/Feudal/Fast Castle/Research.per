@@ -1,0 +1,29 @@
+
+
+
+(defrule
+    (up-research-status c: castle-age < research-pending)
+    =>
+    (up-jump-rule 3)
+)
+
+
+(defrule
+    (can-research ri-wheel-barrow)
+    =>
+    (research ri-wheel-barrow)
+)
+
+(defrule
+    (can-research ri-double-bit-axe)
+    =>
+    (research ri-double-bit-axe)
+)
+
+(defrule
+    (can-research ri-horse-collar)
+    =>
+    (research ri-horse-collar)
+)
+
+

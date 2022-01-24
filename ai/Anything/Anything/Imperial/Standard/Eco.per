@@ -1,9 +1,8 @@
 
 
 
-
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     =>
     (set-strategic-number sn-food-gatherer-percentage 40)
     (set-strategic-number sn-wood-gatherer-percentage 40)
@@ -16,9 +15,13 @@
 
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     =>
-    (set-strategic-number sn-maximum-town-size 36)
+    (set-strategic-number sn-maximum-town-size 42)
     (disable-self)
 )
+
+
+
+
 
