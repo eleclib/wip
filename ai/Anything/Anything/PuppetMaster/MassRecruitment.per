@@ -4,6 +4,10 @@
 
 (defrule
     (not(research-completed my-unique-research))
+    (not(research-completed ri-heavy-scorpion))
+    (not(research-completed ri-halberdier))
+    (not(research-completed ri-houfnice))
+    (not(research-completed ri-chemistry))
     =>
     (up-jump-rule 4)
 )
