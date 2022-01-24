@@ -55,10 +55,10 @@
 
 (defrule
     (current-age == imperial-age)
-    (or
-        (players-unit-type-count any-enemy battering-ram-line > 5)
-        (players-unit-type-count any-enemy castle > 0)
-    )
+    ;(or
+        ;(players-unit-type-count any-enemy battering-ram-line > 5)
+        ;(players-unit-type-count any-enemy castle > 0)
+    ;)
     (wood-amount > 500)
     (gold-amount > 500)
     (can-train houfnice)
