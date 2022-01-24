@@ -22,7 +22,25 @@
 
 
 ; Bohemians Fast Castle Castle Drop
-(load "Anything/Dark/Standard/Constants")
+(load "Anything/Constants")
+
+
+#load-if-defined BOHEMIANS-CIV
+
+(defrule
+    (true)
+    =>
+    (up-change-name "Last Rites")
+    (disable-self)
+)
+
+#end-if
+
+
+
+
+
+
 
 
 (load "Anything/Dark/Standard/Setup")
@@ -55,3 +73,9 @@
 (load "Anything/Castle/Standard/Farms")
 (load "Anything/Castle/Standard/Lumber")
 (load "Anything/Castle/Standard/Mining")
+
+; Standard
+(load "Anything/Imperial/Standard/Villagers")
+(load "Anything/Imperial/Standard/Lumber")
+(load "Anything/Imperial/Standard/Mining")
+(load "Anything/Imperial/Standard/Farms")

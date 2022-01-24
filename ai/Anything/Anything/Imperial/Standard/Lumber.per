@@ -2,7 +2,7 @@
 
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     =>
     (set-goal gl-max-wood-search-distance 24)
     (disable-self)
@@ -11,7 +11,7 @@
 
 
 ;(defrule
-;    (current-age == castle-age)
+;    (current-age == imperial-age)
 ;    (can-build lumber-camp)
 ;    =>
 ;    (up-full-reset-search)
@@ -38,7 +38,7 @@
 
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     (can-build lumber-camp)
     =>
     (up-full-reset-search)
@@ -51,7 +51,7 @@
 )
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     (up-compare-goal gl-search-state-3 > 0)
     (can-build lumber-camp)
     =>
@@ -66,7 +66,7 @@
 )
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     (up-compare-goal gl-search-state-3 == 0)
     (can-build lumber-camp)
     =>
@@ -75,7 +75,7 @@
 )
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     (up-compare-goal gl-search-state-1 == 0)
     (up-pending-objects c: lumber-camp < 1)
     (can-build lumber-camp)
@@ -88,21 +88,11 @@
 
 
 
-; fallback
-(defrule
-    (current-age-time > 660)
-    (building-type-count-total mill > 0)
-    (building-type-count-total lumber-camp < 4)
-    (can-build lumber-camp)
-    =>
-    (set-strategic-number sn-lumber-camp-max-distance 40)
-    (build lumber-camp)
-)
 
 
 
 (defrule
-    (current-age == castle-age)
+    (current-age == imperial-age)
     (up-pending-objects c: lumber-camp > 0)
     =>
     (set-strategic-number sn-placement-zone-size 20)

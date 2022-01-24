@@ -10,6 +10,9 @@
     (true)
     =>
     (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 24)
     (set-strategic-number sn-focus-player-number 0)
     (up-find-remote c: livestock-class c: 8)
     (up-get-search-state gl-search-state)
@@ -20,6 +23,9 @@
     (true)
     =>
     (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 24)
     (set-strategic-number sn-focus-player-number 0)
     (up-find-remote c: predator-animal-class c: 8)
     (up-remove-objects search-remote object-data-resource != food)
@@ -31,6 +37,9 @@
     (true)
     =>
     (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 24)
     (set-strategic-number sn-focus-player-number 0)
     (up-find-remote c: forage-class c: 8)
     (up-get-search-state gl-search-state)
@@ -83,3 +92,15 @@
     (set-strategic-number sn-placement-zone-size 20)
 )
 
+
+
+; fallback
+(defrule
+    (game-time > 660)
+    (building-type-count-total mill > 0)
+    (building-type-count-total lumber-camp < 2)
+    (can-build lumber-camp)
+    =>
+    (set-strategic-number sn-lumber-camp-max-distance 40)
+    (build lumber-camp)
+)

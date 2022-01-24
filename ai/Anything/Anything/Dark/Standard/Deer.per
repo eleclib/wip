@@ -1,0 +1,46 @@
+
+
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 24)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: livestock-class c: 8)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:= gl-search-state-3)
+)
+
+(defrule
+    (true)
+    =>
+    (up-full-reset-search)
+    (up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-filter-distance c: -1 c: 24)
+    (set-strategic-number sn-focus-player-number 0)
+    (up-find-remote c: predator-animal-class c: 8)
+    (up-remove-objects search-remote object-data-resource != food)
+    (up-get-search-state gl-search-state)
+    (up-modify-goal gl-math-1 g:+ gl-search-state-3)
+)
+
+
+
+
+
+
+
+(defrule
+    (game-time > 120)
+    (current-age == dark-age)
+    (building-type-count-total mill < 1)
+    (up-compare-goal gl-math-1 <= 1)
+    (unit-type-count livestock-class <= 1)
+    =>
+    (set-strategic-number sn-enable-boar-hunting 1)
+    (disable-self)
+)
