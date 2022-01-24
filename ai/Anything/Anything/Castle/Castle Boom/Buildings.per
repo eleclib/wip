@@ -1,6 +1,7 @@
 
 
 (defrule
+    (building-type-count-total castle > 0) ; fast castle drop
     (building-type-count-total town-center < 5)
     (can-build town-center)
     =>
