@@ -1,0 +1,14 @@
+
+
+
+
+(defrule
+   (current-age == imperial-age)
+   (housing-headroom <= 13)
+   (up-pending-objects c: house < 3)
+   (can-build house)
+   =>
+   (build house)
+)
+
+

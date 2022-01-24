@@ -1,7 +1,7 @@
 
 
 (defrule
-    (true)
+    (current-age == dark-age)
     =>
     (up-full-reset-search)
     (up-get-point position-self gl-pos)
@@ -11,6 +11,7 @@
 )
 
 (defrule
+    (current-age == dark-age)
     (up-compare-goal gl-sent-scout != 1)
     (up-find-remote c: livestock-class c: 1)
     =>
@@ -21,7 +22,7 @@
 )
 
 (defrule
-    (true)
+    (current-age == dark-age)
     =>
     (up-full-reset-search)
     (up-get-point position-self gl-pos)
@@ -31,6 +32,7 @@
 )
 
 (defrule
+    (current-age == dark-age)
     (not(up-find-remote c: livestock-class c: 1))
     (goal gl-sent-scout 1)
     =>
