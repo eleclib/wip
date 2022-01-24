@@ -1,0 +1,11 @@
+
+
+(defrule
+    (current-age == imperial-age)
+    (building-type-count-total university < 2)
+    (can-build university)
+    =>
+    (build university)
+)
+
+
