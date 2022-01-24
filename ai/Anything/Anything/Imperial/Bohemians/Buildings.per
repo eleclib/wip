@@ -1,0 +1,21 @@
+
+
+(defrule
+    (current-age == imperial-age)
+    (building-type-count-total monastery < 7)
+    (can-build monastery)
+    =>
+    (build monastery)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (building-type-count-total siege-workshop < 4)
+    (can-build siege-workshop)
+    =>
+    (build siege-workshop)
+)
+
+
