@@ -8,12 +8,13 @@
     ;(food-amount > 5000)
     ;(gold-amount > 5000)
     (unit-type-count villager >= 130)
+    (unit-type-count trade-cart >= 40)
     =>
     (set-strategic-number sn-food-gatherer-percentage 59)
     (set-strategic-number sn-wood-gatherer-percentage 39)
     (set-strategic-number sn-gold-gatherer-percentage 1)
     (set-strategic-number sn-stone-gatherer-percentage 1)
-    (set-goal gl-target-villager-total 70)
+    (set-goal gl-target-villager-total 90)
     (set-goal gl-the-great-purge 1)
     (disable-self)
 )
@@ -22,14 +23,14 @@
 
 (defrule
     (goal gl-the-great-purge 1)
-    (unit-type-count villager > 70)
+    (unit-type-count villager > 90)
     =>
     (delete-unit villager)
 )
 
 (defrule
     (goal gl-the-great-purge 1)
-    (unit-type-count villager <= 70)
+    (unit-type-count villager <= 90)
     =>
     (set-goal gl-the-great-purge 0)
 )

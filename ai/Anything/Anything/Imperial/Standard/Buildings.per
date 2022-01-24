@@ -2,10 +2,20 @@
 
 (defrule
     (current-age == imperial-age)
-    (building-type-count-total university < 2)
+    (building-type-count-total university < 1)
     (can-build university)
     =>
     (build university)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (building-type-count-total castle < 3)
+    (can-build castle)
+    =>
+    (build castle)
 )
 
 

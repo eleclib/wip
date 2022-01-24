@@ -16,10 +16,10 @@
 (defrule
     (current-age == imperial-age)
     (research-completed my-unique-research)
-    (research-completed ri-heavy-scorpion)
-    (research-completed ri-halberdier)
-    (research-completed ri-houfnice)
-    (research-completed ri-chemistry)
+    ;(research-completed ri-heavy-scorpion)
+    ;(research-completed ri-halberdier)
+    ;(research-completed ri-houfnice)
+    ;(research-completed ri-chemistry)
     =>
     (up-jump-rule 1)
 )
@@ -27,8 +27,10 @@
 (defrule
     (current-age == imperial-age)
     =>
-    (up-jump-rule 4)
+    (up-jump-rule 2)
 )
+
+
 
 (defrule
     (current-age == imperial-age)
@@ -38,21 +40,6 @@
 )
 
 
-(defrule
-    (current-age == imperial-age)
-    (can-train spearman-line)
-    =>
-    (train spearman-line)
-)
-
-
-(defrule
-    (current-age == imperial-age)
-    (can-train houfnice)
-    =>
-    (train houfnice)
-)
-
 
 (defrule
     (current-age == imperial-age)
@@ -61,3 +48,25 @@
     (train scorpion-line)
 )
 
+
+
+(defrule
+    (current-age == imperial-age)
+    (or
+        (players-unit-type-count any-enemy battering-ram-line > 5)
+        (players-unit-type-count any-enemy castle > 0)
+    )
+    (can-train houfnice)
+    =>
+    (train houfnice)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (players-unit-type-count any-enemy cavalry-class > 5)
+    (can-train spearman-line)
+    =>
+    (train spearman-line)
+)

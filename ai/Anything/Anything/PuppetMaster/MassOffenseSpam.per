@@ -1,3 +1,10 @@
 
 
 
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (can-build bombard-tower)
+    =>
+    (build-forward bombard-tower)
+)
