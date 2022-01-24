@@ -19,6 +19,8 @@
     (up-find-local c: spearman-line c: 240)
     (up-find-local c: scorpion-line c: 240)
     (up-find-local c: houfnice c: 240)
+    (up-remove-objects search-local object-data-action == actionid-attack)
+    (up-remove-objects search-local object-data-action == actionid-move)
 )
 
 
@@ -51,6 +53,15 @@
     =>
     (up-modify-goal gl-current-player-iteration c:+ 1)
     (up-jump-rule -2)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    =>
+    (set-goal gl-current-player-iteration 1)
 )
 
 
