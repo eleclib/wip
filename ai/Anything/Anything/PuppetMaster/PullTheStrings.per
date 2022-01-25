@@ -12,7 +12,7 @@
 (defrule
     (up-timer-status tm-tsa-duc > timer-triggered)
     =>
-    (up-jump-rule 9)
+    (up-jump-rule 17)
 )
 
 (defrule
@@ -29,9 +29,9 @@
     (military-population > 55)
     =>
     (up-full-reset-search)
-    (up-find-local c: monk c: 240)
-    (up-find-local c: spearman-line c: 240)
-    (up-find-local c: scorpion-line c: 240)
+    ;(up-find-local c: monk c: 240)
+    ;(up-find-local c: spearman-line c: 240)
+    ;(up-find-local c: scorpion-line c: 240)
     (up-find-local c: houfnice c: 240)
     ;(up-remove-objects search-local object-data-action == actionid-attack)
     ;(up-remove-objects search-local object-data-action == actionid-move)
@@ -76,6 +76,7 @@
     (up-reset-filters)
     (up-filter-distance c: -1 g: gl-simulated-town-size-attack)
     (up-find-remote c: -1 c: 40)
+    (up-remove-objects search-remote object-data-class != building-class)
     (up-modify-goal gl-current-player-iteration c:+ 1)
     (up-jump-rule -1)
 )
@@ -137,13 +138,139 @@
     (up-modify-goal gl-simulated-town-size-attack c:- 4)
 )
 
+;(defrule
+;    (current-age == imperial-age)
+;    (military-population > 55)
+;    =>
+;    (up-send-flare gl-pos)
+;    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+;)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
     =>
-    (up-send-flare gl-pos)
-    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+    (up-full-reset-search)
+    (up-find-local c: monk c: 240)
+    (up-find-local c: spearman-line c: 240)
+    (up-find-local c: scorpion-line c: 240)
+    ;(up-find-local c: houfnice c: 240)
+    ;(up-remove-objects search-local object-data-action == actionid-attack)
+    ;(up-remove-objects search-local object-data-action == actionid-move)
+    ;(up-remove-objects search-local object-data-action == actionid-convert)
 )
+
+
+
+
+
+
+
+
+
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (up-compare-goal gl-current-player-iteration < 9)
+    (up-compare-const my-player-number g:!= gl-current-player-iteration)
+    =>
+    (up-get-point position-center gl-pos)
+    ;(up-get-point position-self gl-pos)
+    (up-set-target-point gl-pos)
+    (up-reset-filters)
+    (up-filter-distance c: -1 g: gl-simulated-town-size-attack)
+    (up-find-remote c: -1 c: 40)
+    (up-remove-objects search-remote object-data-class == building-class)
+    (up-modify-goal gl-current-player-iteration c:+ 1)
+    (up-jump-rule -1)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (up-compare-goal gl-current-player-iteration < 9)
+    (up-compare-const my-player-number g:== gl-current-player-iteration)
+    =>
+    (up-modify-goal gl-current-player-iteration c:+ 1)
+    (up-jump-rule -2)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    =>
+    (set-goal gl-current-player-iteration 1)
+)
+
+
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    =>
+    (up-get-search-state gl-search-state)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (up-compare-goal gl-search-state-3 > 0)
+    =>
+    (up-clean-search search-remote object-data-distance search-order-asc)
+    (up-remove-objects search-remote object-data-index > 2)
+    ;(up-get-search-state gl-search-state)
+    (up-target-objects 0 action-default -1 -1)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (up-compare-goal gl-search-state-3 < 10)
+    =>
+    (up-modify-goal gl-simulated-town-size-attack c:+ 4)
+)
+
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    (up-compare-goal gl-search-state-3 >= 10)
+    =>
+    (up-modify-goal gl-simulated-town-size-attack c:- 4)
+)
+
+;(defrule
+;    (current-age == imperial-age)
+;    (military-population > 55)
+;    =>
+;    (up-send-flare gl-pos)
+;    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+;)
 
 (defrule
     (current-age == imperial-age)
@@ -151,3 +278,8 @@
     =>
     (set-goal gl-simulated-town-size-attack 4)
 )
+
+
+
+
+
