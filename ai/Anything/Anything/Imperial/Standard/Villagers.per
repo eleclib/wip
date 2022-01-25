@@ -8,3 +8,11 @@
 )
 
 
+(defrule
+    (up-research-status c: imperial-age >= research-pending)
+    =>
+    (set-strategic-number sn-maximum-food-drop-distance 17)
+    (disable-self)
+)
+
+

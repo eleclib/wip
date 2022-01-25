@@ -3,8 +3,8 @@
 
 (defrule
     (current-age == imperial-age)
-    (up-pending-objects c: farm <= 2)
-    (idle-farm-count <= 2) ; also do eco
+    (up-pending-objects c: farm <= 4)
+    (idle-farm-count <= 4) ; also do eco
     (can-build farm)
     =>
     (build farm)

@@ -2,6 +2,7 @@
 
 
 (defrule
+    (player-in-game any-ally)
     (current-age == imperial-age)
     (current-age-time > 1200)
     ;(wood-amount > 5000)
@@ -9,6 +10,26 @@
     ;(gold-amount > 5000)
     (unit-type-count villager >= 100)
     (unit-type-count trade-cart >= 25)
+    =>
+    (set-strategic-number sn-food-gatherer-percentage 59)
+    (set-strategic-number sn-wood-gatherer-percentage 39)
+    (set-strategic-number sn-gold-gatherer-percentage 1)
+    (set-strategic-number sn-stone-gatherer-percentage 1)
+    (set-goal gl-target-villager-total 90)
+    (set-goal gl-the-great-purge 1)
+    (disable-self)
+)
+
+
+
+(defrule
+    (not(player-in-game any-ally))
+    (current-age == imperial-age)
+    (current-age-time > 1200)
+    ;(wood-amount > 5000)
+    ;(food-amount > 5000)
+    ;(gold-amount > 5000)
+    (unit-type-count villager >= 100)
     =>
     (set-strategic-number sn-food-gatherer-percentage 59)
     (set-strategic-number sn-wood-gatherer-percentage 39)
