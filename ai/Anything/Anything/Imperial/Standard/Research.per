@@ -23,6 +23,7 @@
 )
 
 (defrule
+    (player-in-game any-ally)
     (can-research ri-coinage)
     =>
     (research ri-coinage)
@@ -30,6 +31,7 @@
 
 
 (defrule
+    (player-in-game any-ally)
     (can-research ri-caravan)
     =>
     (research ri-caravan)

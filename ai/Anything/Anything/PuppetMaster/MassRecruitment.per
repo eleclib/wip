@@ -55,8 +55,8 @@
 
 (defrule
     (current-age == imperial-age)
-    (wood-amount > 750)
-    (gold-amount > 750)
+    (wood-amount > 500)
+    (gold-amount > 500)
     (can-train houfnice)
     =>
     (train houfnice)
@@ -71,4 +71,16 @@
     (can-train spearman-line)
     =>
     (train spearman-line)
+)
+
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (wood-amount > 500)
+    (gold-amount > 500)
+    (can-train battering-ram-line)
+    =>
+    (train battering-ram-line)
 )
