@@ -116,7 +116,7 @@
     (up-compare-goal gl-search-state-3 > 0)
     =>
     (up-clean-search search-remote object-data-distance search-order-asc)
-    ;(up-remove-objects search-remote object-data-index > 5)
+    (up-remove-objects search-remote object-data-index > 2)
     ;(up-get-search-state gl-search-state)
     (up-target-objects 0 action-default -1 -1)
 )
@@ -137,13 +137,13 @@
     (up-modify-goal gl-simulated-town-size-attack c:- 4)
 )
 
-;(defrule
-;    (current-age == imperial-age)
-;    (military-population > 55)
-;    =>
-;    (up-send-flare gl-pos)
-;    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
-;)
+(defrule
+    (current-age == imperial-age)
+    (military-population > 55)
+    =>
+    (up-send-flare gl-pos)
+    (up-chat-data-to-all "gl-simulated-town-size-attack: %d" g: gl-simulated-town-size-attack)
+)
 
 (defrule
     (current-age == imperial-age)
