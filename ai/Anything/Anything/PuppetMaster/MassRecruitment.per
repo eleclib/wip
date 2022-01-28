@@ -66,8 +66,8 @@
 
 (defrule
     (current-age == imperial-age)
-    (wood-amount > 750)
-    (food-amount > 750)
+    (wood-amount > 375)
+    (food-amount > 375)
     (can-train spearman-line)
     =>
     (train spearman-line)
@@ -83,4 +83,14 @@
     (can-train battering-ram-line)
     =>
     (train battering-ram-line)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (food-amount > 450)
+    (can-train scout-cavalry-line)
+    =>
+    (train scout-cavalry-line)
 )

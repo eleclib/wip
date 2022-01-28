@@ -1,18 +1,23 @@
 
 (defrule
-    (true)
+    (current-age == imperial-age)
     =>
     (set-goal gl-simulated-town-size-attack 4)
     (set-goal gl-current-player-iteration 1)
     (disable-self)
 )
 
-
+(defrule
+    (current-age == imperial-age)
+    =>
+    (set-strategic-number sn-disable-defend-groups 1) ; disable TSA
+    (disable-self)
+)
 
 (defrule
     (up-timer-status tm-tsa-duc > timer-triggered)
     =>
-    (up-jump-rule 17)
+    (up-jump-rule 27)
 )
 
 (defrule
@@ -68,7 +73,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:!= gl-current-player-iteration)
     =>
     ;(up-get-point position-center gl-pos)
@@ -85,7 +91,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:== gl-current-player-iteration)
     =>
     (up-modify-goal gl-current-player-iteration c:+ 1)
@@ -118,7 +125,7 @@
     (up-compare-goal gl-search-state-3 > 0)
     =>
     (up-clean-search search-remote object-data-distance search-order-asc)
-    (up-remove-objects search-remote object-data-index > 2)
+    (up-remove-objects search-remote object-data-index > 7)
     ;(up-get-search-state gl-search-state)
     (up-target-objects 0 action-default -1 -1)
 )
@@ -194,7 +201,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:!= gl-current-player-iteration)
     =>
     ;(up-get-point position-center gl-pos)
@@ -211,7 +219,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:== gl-current-player-iteration)
     =>
     (up-modify-goal gl-current-player-iteration c:+ 1)
@@ -244,7 +253,7 @@
     (up-compare-goal gl-search-state-3 > 0)
     =>
     (up-clean-search search-remote object-data-distance search-order-asc)
-    (up-remove-objects search-remote object-data-index > 2)
+    (up-remove-objects search-remote object-data-index > 7)
     ;(up-get-search-state gl-search-state)
     (up-target-objects 0 action-default -1 -1)
 )
@@ -336,7 +345,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:!= gl-current-player-iteration)
     =>
     ;(up-get-point position-center gl-pos)
@@ -353,7 +363,8 @@
 (defrule
     (current-age == imperial-age)
     (military-population > 55)
-    (up-compare-goal gl-current-player-iteration < 9)
+    (up-get-fact players-in-game 0 gl-up-get-fact)
+    (up-compare-goal gl-current-player-iteration g:<= gl-up-get-fact)
     (up-compare-const my-player-number g:== gl-current-player-iteration)
     =>
     (up-modify-goal gl-current-player-iteration c:+ 1)
@@ -386,7 +397,7 @@
     (up-compare-goal gl-search-state-3 > 0)
     =>
     (up-clean-search search-remote object-data-distance search-order-asc)
-    (up-remove-objects search-remote object-data-index > 2)
+    (up-remove-objects search-remote object-data-index > 7)
     ;(up-get-search-state gl-search-state)
     (up-target-objects 0 action-default -1 -1)
 )

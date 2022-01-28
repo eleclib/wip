@@ -4,12 +4,13 @@
 (defrule
     (player-in-game any-ally)
     (current-age == imperial-age)
-    (current-age-time > 1200)
+    ;(current-age-time > 600)
     ;(wood-amount > 5000)
     ;(food-amount > 5000)
     ;(gold-amount > 5000)
     (unit-type-count villager >= 100)
     (unit-type-count trade-cart >= 25)
+    (military-population > 35)
     =>
     (set-strategic-number sn-food-gatherer-percentage 59)
     (set-strategic-number sn-wood-gatherer-percentage 39)
@@ -30,6 +31,8 @@
     ;(food-amount > 5000)
     ;(gold-amount > 5000)
     (unit-type-count villager >= 100)
+    ;(unit-type-count trade-cart >= 25)
+    (military-population > 35)
     =>
     (set-strategic-number sn-food-gatherer-percentage 59)
     (set-strategic-number sn-wood-gatherer-percentage 39)

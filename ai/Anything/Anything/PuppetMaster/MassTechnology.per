@@ -124,3 +124,50 @@
 )
 
 
+(defrule
+    (current-age == imperial-age)
+    (unit-type-count battering-ram-line > 5)
+    (can-research ri-capped-ram)
+    =>
+    (research ri-capped-ram)
+)
+
+
+(defrule
+    (current-age == imperial-age)
+    (unit-type-count scout-cavalry-line > 5)
+    (can-research ri-light-cavalry)
+    =>
+    (research ri-light-cavalry)
+)
+
+
+(defrule
+    (current-age == imperial-age)
+    (unit-type-count battering-ram-line > 5)
+    (can-research ri-scale-barding)
+    =>
+    (research ri-scale-barding)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (unit-type-count battering-ram-line > 5)
+    (can-research ri-chain-barding)
+    =>
+    (research ri-chain-barding)
+)
+
+
+
+(defrule
+    (current-age == imperial-age)
+    (unit-type-count battering-ram-line > 5)
+    (can-research ri-plate-barding)
+    =>
+    (research ri-plate-barding)
+)
+
+
